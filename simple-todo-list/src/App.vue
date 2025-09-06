@@ -45,10 +45,61 @@ function addTask() {
   todos.value.unshift(newTodo)
 
   //clearing the input field after submitting
-  newTaskText.value('')
+  newTaskText.value = ''
 
  }
 
 </script>
 
+
+<style scoped>
+.todo-app {
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 3rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  font-family: sans-serif;
+  background-color: aliceblue;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+form {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+input[type="text"] {
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px 0 0 4px;
+  margin-right: 0.001rem;
+}
+
+bottom {
+  padding: 10px 15px;
+  border: none;
+  background-color: #42b983;
+  color: gray;
+  cursor: pointer;
+  border-radius: 0 4px 4px 0;
+}
+
+ul {
+  list-style-type: circle;
+  border-bottom: 1px solid lightgray;
+  color: #333;
+}
+
+ul li {
+  display: flex;
+  align-content: start;
+}
+
+</style>
 
