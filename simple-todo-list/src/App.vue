@@ -26,6 +26,20 @@ const todos = ref([
 ])
 
 // the addTask method to add the item to the list and clear the input field 
+function addTask() { 
+  // validation to avoid empty tasks/inputs
+  if ( newTaskText.value.trim() === '' ) {
+    return
+  }
+
+  // new todo list 
+  const newTodo = {
+    id: Date.now(), // using timestamp as id
+    text: newTaskText.value,
+    completed: false
+  }
+
+ }
 
 </script>
 
