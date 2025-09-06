@@ -39,6 +39,12 @@ function addTask() {
     completed: false
   }
 
+  //add new object to the beginning of an array
+  todos.value.unshift(newTodo)
+
+  //clearing the input field after submitting
+  newTaskText.value('')
+
  }
 
 </script>
