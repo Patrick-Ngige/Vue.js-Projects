@@ -1,16 +1,18 @@
 <template>
-  <div>
+  <div class="todo-app">
     <h1>My TODO List</h1>
 
-    <form action="">
-      <input type="text" placeholder="Add a new task...">
+    <form @submit.prevent="addTask">
+      <input type="text" v-model="newTaskText" placeholder="Add a new task...">
       <button type="submit">Add Task</button>
     </form>
 
     <ul>
       <!-- the items to be rendered here  -->
+      <li v-for="todo in todos" :key="todo.id">
+        {{ todo.text  }}
+      </li>
     </ul>
-
   </div>
 </template>
 
@@ -48,4 +50,5 @@ function addTask() {
  }
 
 </script>
+
 
