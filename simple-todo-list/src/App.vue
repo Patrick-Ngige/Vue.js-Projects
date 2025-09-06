@@ -52,11 +52,11 @@ function addTask() {
   //clearing the input field after submitting
   newTaskText.value = ''
 
-  function toggleComplete(todo) {
+ }
+
+ function toggleComplete(todo) {
     todo.completed = !todo.completed
     }
-
- }
 
 </script>
 
@@ -108,9 +108,10 @@ ul {
 li {
   display: flex;
   align-content: start;
+  cursor: pointer;
 }
 
-li.comleted {
+li.completed {
   text-decoration: line-through;
   color: #999;
 }
