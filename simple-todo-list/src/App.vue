@@ -9,8 +9,13 @@
 
     <ul>
       <!-- the items to be rendered here  -->
-      <li v-for="todo in todos" :key="todo.id">
-        {{ todo.text  }}
+      <li 
+      v-for="todo in todos" 
+      :key="todo.id" 
+      @click="toggleComplete(todo)" 
+      :class="{ completed: todo.completed }"
+      >
+        {{ todo.text }}
       </li>
     </ul>
   </div>
@@ -46,6 +51,10 @@ function addTask() {
 
   //clearing the input field after submitting
   newTaskText.value = ''
+
+  function toggleComplete(todo) {
+    todo.completed = !todo.completed
+    }
 
  }
 
@@ -96,9 +105,14 @@ ul {
   color: #333;
 }
 
-ul li {
+li {
   display: flex;
   align-content: start;
+}
+
+li.comleted {
+  text-decoration: line-through;
+  color: #999;
 }
 
 </style>
