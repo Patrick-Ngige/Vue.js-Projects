@@ -15,11 +15,11 @@ const userId = route.params.id
 async function fetchUser() {
   try {
     //using the id to fetch specific user
-    const repsonse = await fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
-    if (!repsonse.ok) {
+    const response = await fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
+    if (!response.ok) {
       throw new Error('User not found')
     }
-    user.value = await Response.json()
+    user.value = await response.json()
   } catch (e) {
     error.value = e
   } finally {
