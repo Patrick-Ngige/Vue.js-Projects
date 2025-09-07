@@ -34,7 +34,11 @@ onMounted(() => {
     <div v-if="loading">Loading...</div>
     <div v-else-if="error" style="color: red">Error: {{ error.message }}</div>
     <ul v-else>
-      <li v-for="user in users" :key="user.id">{{ user.name }} ({{ user.email }})</li>
+      <li v-for="user in users" :key="user.id">
+        <RouterLink :to="`/users/${user.id}`">
+          {{ user.name }}
+        </RouterLink>
+      </li>
     </ul>
   </div>
 </template>
