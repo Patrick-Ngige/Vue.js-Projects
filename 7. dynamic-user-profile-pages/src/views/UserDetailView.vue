@@ -31,3 +31,21 @@ onMounted(() => {
   fetchUser()
 })
 </script>
+
+<template>
+  <div class="page-content">
+    <div v-if="loading">Loading user details...</div>
+    <div v-else-if="error" style="color: red">Error: {{ error.message }}</div>
+
+    <!-- Displaying user details -->
+    <div v-else-if="user">
+      <h1>{{ user.name }}</h1>
+      <ul>
+        <li><strong>Username:</strong>{{ user.username }}</li>
+        <li><strong>Email:</strong>{{ user.email }}</li>
+        <li><strong>Phone:</strong>{{ user.phone }}</li>
+        <li><strong>Website:</strong>{{ user.website }}</li>
+      </ul>
+    </div>
+  </div>
+</template>
