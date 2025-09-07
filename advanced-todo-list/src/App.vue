@@ -15,6 +15,7 @@ function addTask() {
     text: newTaskText.value,
     completed: false,
   })
+  newTaskText.value = ''
 }
 
 function toggleComplete(todo) {
