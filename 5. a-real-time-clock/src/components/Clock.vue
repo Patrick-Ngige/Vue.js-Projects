@@ -24,3 +24,10 @@ onUnmounted(() => {
   clearInterval(timerId)
 })
 </script>
+
+<template>
+  <div class="clock-widget">
+    <h2>The Current time is:</h2>
+    <p>{{ currentTime }}</p>
+  </div>
+</template>
