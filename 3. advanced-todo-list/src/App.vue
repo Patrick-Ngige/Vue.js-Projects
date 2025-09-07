@@ -18,8 +18,16 @@ function addTask() {
   newTaskText.value = ''
 }
 
-function toggleComplete(todo) {
-  todo.completed = !todo.completed
+// this functions receices an ID from the child
+function handleToggleComplete(todoId) {
+  const todoToggle = todos.value.find((t) => t.id === todoId) //finding the specific todo in the array
+  if (todoToggle) {
+    todoToggle.completed = !todoToggle.completed
+  }
+}
+
+function handleDeleteTodo(todoId) {
+  todos.value = todos.value.filter((t) => t.id !== todoId) //re-assign the todos array to a new array that excludes the deleted item using the .filter()
 }
 </script>
 
@@ -32,7 +40,13 @@ function toggleComplete(todo) {
     </form>
 
     <ul>
-      <TodoItem v-for="todo in todos" :key="todo.id" :todo="todo" @click="toggleComplete(todo)" />
+      <TodoItem
+        v-for="todo in todos"
+        :key="todo.id"
+        :todo="todo"
+        @toggle-complete="handleToggleComplete(todo.id)"
+        @delete-todo="handleDeleteTodo(todo.id)"
+      />
     </ul>
   </div>
 </template>
