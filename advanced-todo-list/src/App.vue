@@ -36,4 +36,13 @@ function toggleComplete(todo) {
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.todo-app {
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 3rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  font-family: sans-serif;
+}
+</style>
