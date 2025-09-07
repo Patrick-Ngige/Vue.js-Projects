@@ -1,7 +1,7 @@
 <script setup>
 defineProps({
   todo: {
-    type: object,
+    type: Object,
     required: true,
   },
 })

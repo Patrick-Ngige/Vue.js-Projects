@@ -45,4 +45,35 @@ function toggleComplete(todo) {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   font-family: sans-serif;
 }
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+form {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+input[type='text'] {
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px 0 0 4px;
+}
+
+button {
+  padding: 10px 15px;
+  border: none;
+  background-color: #42b983;
+  color: white;
+  cursor: pointer;
+  border-radius: 0 4px 4px 0;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
 </style>
