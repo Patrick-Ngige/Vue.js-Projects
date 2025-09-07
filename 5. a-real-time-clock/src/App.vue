@@ -23,4 +23,22 @@ function toggleClock() {
   </main>
 </template>
 
-<style scoped></style>
+<style scoped>
+.app-container {
+  max-width: 500px;
+  margin: 50px auto;
+  text-align: center;
+}
+
+button {
+  font-size: 1em;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+hr {
+  margin: 20px 0;
+  border: 1px solid #eee;
+}
+</style>
