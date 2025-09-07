@@ -18,4 +18,13 @@ li {
   cursor: pointer;
   transition: all 0.2s;
 }
+
+li:hover {
+  background-color: #f9f9f9;
+}
+
+li.completed {
+  text-decoration: line-through;
+  color: #999;
+}
 </style>
