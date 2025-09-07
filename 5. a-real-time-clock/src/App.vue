@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-import Clock from './components/Clock.vue'
+import BaseClock from './components/BaseClock.vue'
 
 //a ref to control the visibility of the clock
 const showClock = ref(true)
@@ -19,7 +19,7 @@ function toggleClock() {
 
     <hr />
 
-    <Clock v-if="showClock" />
+    <BaseClock v-if="showClock" />
   </main>
 </template>
 
