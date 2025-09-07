@@ -31,3 +31,25 @@ onUnmounted(() => {
     <p>{{ currentTime }}</p>
   </div>
 </template>
+
+<style scoped>
+.clock-widget {
+  padding: 20px;
+  border: 2px solid #42b983;
+  border-radius: 8px;
+  text-align: center;
+  background-color: #f0fdf4;
+}
+
+h2 {
+  margin: 0 0 10px;
+  font-weight: 600;
+}
+
+p {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 2em;
+  color: #333;
+  margin: 0;
+}
+</style>
