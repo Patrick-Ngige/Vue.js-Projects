@@ -8,4 +8,11 @@ const settings = ref({
   theme: 'light',
   language: 'en',
 })
+
+//options for select dropdown
+const languageOptions = [
+  { Text: 'English', value: 'en' },
+  { Text: 'Spanish', value: 'es' },
+  { Text: 'French', value: 'fr' },
+]
 </script>
