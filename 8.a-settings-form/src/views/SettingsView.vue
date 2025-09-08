@@ -64,3 +64,43 @@ const languageOptions = [
     </div>
   </div>
 </template>
+
+<style scoped>
+.settings-form {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group p {
+  margin: 0 0 10px;
+  font-weight: bold;
+}
+
+label {
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+select {
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.live-data {
+  margin-top: 20px;
+  background-color: #2c3e50;
+  color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+pre {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.1em;
+}
+</style>
