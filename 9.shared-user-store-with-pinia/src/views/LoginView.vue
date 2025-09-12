@@ -12,7 +12,7 @@ const isLoading = ref(false)
 const tempUsername = ref('TestUser') //temporary username for the input
 
 function performLogin() {
-  isLosding.value = true
+  isLoading.value = true
 
   setTimeout(() => {
     //calling login action from the store
