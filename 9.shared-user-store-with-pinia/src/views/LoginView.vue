@@ -38,3 +38,18 @@ function performLogin() {
     </button>
   </div>
 </template>
+
+<style scoped>
+input {
+  padding: 10px;
+  margin-right: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+}
+</style>
