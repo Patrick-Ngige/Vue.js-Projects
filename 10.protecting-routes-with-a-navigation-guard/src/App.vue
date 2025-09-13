@@ -1,12 +1,35 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterLink, RouterView, useRoute } from 'vue-router'
 import { useAuthStore } from './stores/authStore'
+import { useRouter } from 'vue-router'
+import { watch } from 'vue'
 
 const authStore = useAuthStore()
+const router = useRouter()
+const route = useRoute()
 
 function handleLogOut() {
   authStore.logout()
+
+  //adding the watcher
+  router.push('/')
 }
+
+// watching the login state
+watch(
+  () => authStore.isLoggedIn,
+  (isNowLoggedIn, wasPreviouslyLoggedIn) => {
+    //runs whenever authStore.isLoggedIn changes
+    if (wasPreviouslyLoggedIn && !isNowLoggedIn) {
+      console.log('User logged out, checking if redirect is needed.')
+      //checking is the user is currently on a page that requires auth
+      if (route.meta.requiresAuth) {
+        // if yes, force them to login page
+        router.push({ name: 'login' })
+      }
+    }
+  },
+)
 </script>
 
 <template>
