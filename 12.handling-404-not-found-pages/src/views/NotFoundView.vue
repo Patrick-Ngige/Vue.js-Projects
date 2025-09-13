@@ -3,7 +3,7 @@
     <h1>404 - Page Not Found!</h1>
     <p>Sorry, the page you are looking for does not exist.</p>
     <p>You can go back to the home page by clicking the button below.</p>
-    <RouterLink to="/" class="home-button">Go to Home.</RouterLink>
+    <RouterLink to="/login" class="home-button">Go to Home.</RouterLink>
   </div>
 </template>
 
