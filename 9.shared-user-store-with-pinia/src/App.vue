@@ -14,14 +14,14 @@ function handleLogOut() {
     <header>
       <div class="wrapper">
         <nav>
-          <RouterLink to="/">Home</RouterLink>
+          <!-- <RouterLink to="/">Home</RouterLink>
           <RouterLink to="/about">About</RouterLink>
           <RouterLink to="/users">Users</RouterLink>
-          <RouterLink to="/settings">Settings</RouterLink>
+          <RouterLink to="/settings">Settings</RouterLink> -->
 
           <!-- 3. Use v-if to show Login or Logout -->
           <RouterLink v-if="!authStore.isLoggedIn" to="/login">Login</RouterLink>
-          <a v-else @click="handleLogout" class="logout-link">Logout</a>
+          <a v-else @click="handleLogOut" class="logout-link">Logout</a>
         </nav>
 
         <!-- 4. Show a welcome message if logged in -->

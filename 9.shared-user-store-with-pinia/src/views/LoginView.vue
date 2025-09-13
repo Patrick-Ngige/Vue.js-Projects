@@ -13,16 +13,21 @@ const tempUsername = ref('TestUser') //temporary username for the input
 
 function performLogin() {
   isLoading.value = true
+  console.log('Simulating login...')
 
+  // The setTimeout now correctly represents the entire "waiting" period.
   setTimeout(() => {
-    //calling login action from the store
+    console.log('Login successful! Updating state and redirecting...')
+
+    // 1. Update the state FIRST.
     authStore.login(tempUsername.value)
 
-    //redirecting when approved
+    // 2. Immediately navigate AFTER the state is updated.
     router.push({ name: 'users' })
 
+    // We can still reset the local loading state for when the user comes back.
     isLoading.value = false
-  }, 1000)
+  }, 1500) // The delay happens before anything inside this block runs.
 }
 </script>
 
