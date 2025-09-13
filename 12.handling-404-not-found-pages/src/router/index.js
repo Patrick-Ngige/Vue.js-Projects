@@ -17,6 +17,14 @@ const router = createRouter({
         requiresAuth: true,
       },
     },
+    // ... any other routes
+
+    //catch-all route should be the last route
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'NotFound',
+      component: () => import('../views/NotFoundView.vue'),
+    },
   ],
 })
 
