@@ -49,7 +49,7 @@ watch(
 
         <!-- 4. Show a welcome message if logged in -->
         <div v-if="authStore.isLoggedIn" class="welcome-message">
-          Welcome, {{ authStore.username }}!
+          {{ authStore.formattedWelcomeMessage }}
         </div>
       </div>
     </header>
