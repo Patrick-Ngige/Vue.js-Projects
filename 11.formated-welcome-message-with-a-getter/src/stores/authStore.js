@@ -9,6 +9,15 @@ export const useAuthStore = defineStore('auth', {
   }),
 
   // Getters: computed properties for the store
+  getters: {
+    //receives the state as its first argument.
+    formattedWelcomeMessage(state) {
+      if (state.username) {
+        return `Welcome back, ${state.username}!`
+      }
+      return 'Welcome!'
+    },
+  },
 
   // Actions: methods that modify the state
   actions: {
