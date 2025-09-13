@@ -16,8 +16,8 @@ function handleLogOut() {
         <nav>
           <!-- <RouterLink to="/">Home</RouterLink>
           <RouterLink to="/about">About</RouterLink>
-          <RouterLink to="/users">Users</RouterLink>
-          <RouterLink to="/settings">Settings</RouterLink> -->
+          <RouterLink to="/users">Users</RouterLink> -->
+          <RouterLink to="/settings">Settings</RouterLink>
 
           <!-- 3. Use v-if to show Login or Logout -->
           <RouterLink v-if="!authStore.isLoggedIn" to="/login">Login</RouterLink>
