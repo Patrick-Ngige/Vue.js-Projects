@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia'
+import { v4 as uuid } from 'uuid'
 
 export const useBoardStore = defineStore('board', {
   state: () => ({
@@ -31,6 +32,23 @@ export const useBoardStore = defineStore('board', {
     //getter to get the columns array directly
     getColumns(state) {
       return state.board.columns
+    },
+  },
+
+  actions: {
+    addCard({ columnId, cardContent }) {
+      //finding the column using its  ID
+      const column = this.board.columns.find((col) => col.id === columnId)
+
+      if (column) {
+        //creating a new card object
+        const newCard = {
+          id: uuid(), //generating a unique ID
+          content: cardContent,
+        }
+        //adding the new card to the column list
+        column.cards.push(newCard)
+      }
     },
   },
 })
