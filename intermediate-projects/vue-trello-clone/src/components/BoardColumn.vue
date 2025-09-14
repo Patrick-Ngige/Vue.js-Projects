@@ -21,10 +21,10 @@ const newCardContent = ref('')
 // When v-model tries to "set" a new value, it will update the store directly.
 const columnModel = computed({
   get: () => boardStore.board.columns.find((col) => col.id === props.column.id),
-  set: (newColumnData) => {
-    // This part is less critical for vuedraggable but good practice.
-    // In essence, vuedraggable modifies the 'cards' array on the object directly.
-  },
+  // set: (newColumnData) => {
+  // This part is less critical for vuedraggable but good practice.
+  // In essence, vuedraggable modifies the 'cards' array on the object directly.
+  // },
 })
 
 function handleAddCard() {

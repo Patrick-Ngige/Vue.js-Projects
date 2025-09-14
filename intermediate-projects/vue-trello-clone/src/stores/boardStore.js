@@ -51,4 +51,17 @@ export const useBoardStore = defineStore('board', {
       }
     },
   },
+
+  deleteCard({ columnId, cardId }) {
+    const column = this.board.columns.find((col) => col.id === columnId)
+
+    if (column) {
+      const cardIndex = column.cards.findIndex((card) => card.id === cardId)
+
+      //when card is found, remove from array
+      if (cardIndex !== -1) {
+        column.cards.splice(cardIndex, 1)
+      }
+    }
+  },
 })
