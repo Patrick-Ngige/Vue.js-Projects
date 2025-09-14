@@ -16,6 +16,17 @@ const boardStore = useBoardStore()
 //local state for the new card's content
 const newCardContent = ref('')
 
+// 2. CREATE A WRITABLE COMPUTED PROPERTY
+// This finds the column in the store that matches our prop's ID.
+// When v-model tries to "set" a new value, it will update the store directly.
+const columnModel = computed({
+  get: () => boardStore.board.columns.find((col) => col.id === props.column.id),
+  set: (newColumnData) => {
+    // This part is less critical for vuedraggable but good practice.
+    // In essence, vuedraggable modifies the 'cards' array on the object directly.
+  },
+})
+
 function handleAddCard() {
   //avoiding empty cards
   if (newCardContent.value.trim() === '') {
@@ -43,7 +54,7 @@ function handleAddCard() {
 
     <!-- replacing the v-for div with the draggable component  -->
     <draggable
-      v-model="column.cards"
+      v-model="columnModel.cards"
       group="cards"
       item-key="id"
       class="card-list"
