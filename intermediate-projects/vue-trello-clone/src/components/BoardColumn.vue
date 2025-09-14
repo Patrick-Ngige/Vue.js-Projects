@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import { useBoardStore } from '@/stores/boardStore'
+import draggable from 'vuedraggable' //draggable library
 
 const props = defineProps({
   column: {
@@ -35,11 +36,27 @@ function handleAddCard() {
 <template>
   <div class="column">
     <h2 class="column-title">{{ column.title }}</h2>
-    <div class="card-list">
-      <div v-for="card in column.cards" :key="card.id" class="card">
+    <!-- <div class="card-list"> -->
+    <!-- <div v-for="card in column.cards" :key="card.id" class="card">
         {{ card.content }}
-      </div>
-    </div>
+      </div> -->
+
+    <!-- replacing the v-for div with the draggable component  -->
+    <draggable
+      v-model="column.cards"
+      group="cards"
+      item-key="id"
+      class="card-list"
+      ghost-class="ghost"
+      animation="200"
+    >
+      <template #item="{ element: card }">
+        <div class="card">
+          {{ card.content }}
+        </div>
+      </template>
+    </draggable>
+    <!-- </div> -->
 
     <form @submit.prevent="handleAddCard" class="add-card-form">
       <textarea
@@ -101,5 +118,14 @@ function handleAddCard() {
 
 .add-card-btn:hover {
   background-color: #61c547;
+}
+
+.ghost {
+  opacity: 0.5;
+  background: #c8ebfb;
+}
+
+.card-list {
+  min-height: 50px; /** provides a drop zone even when a column is empty */
 }
 </style>
