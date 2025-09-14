@@ -12,3 +12,13 @@ const boardStore = useBoardStore()
     <BoardColumn v-for="column in boardStore.getColumns" :key="column.id" :column="column" />
   </div>
 </template>
+
+<style scoped>
+.board {
+  display: flex;
+  overflow-x: auto;
+  padding: 20px;
+  height: 100vh;
+  background-color: #0079bf;
+}
+</style>
