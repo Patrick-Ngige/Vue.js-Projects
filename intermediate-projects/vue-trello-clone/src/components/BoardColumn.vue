@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { useBoardStore } from '@/stores/boardStore'
 import draggable from 'vuedraggable' //draggable library
 
@@ -42,6 +42,13 @@ function handleAddCard() {
   //clearing the input after submitting
   newCardContent.value = ''
 }
+
+function handleDeleteCard(cardId) {
+  boardStore.deleteCard({
+    columnId: props.column.id,
+    cardId: cardId,
+  })
+}
 </script>
 
 <template>
@@ -63,7 +70,8 @@ function handleAddCard() {
     >
       <template #item="{ element: card }">
         <div class="card">
-          {{ card.content }}
+          <span>{{ card.content }} </span>
+          <button @click="handleDeleteCard(card.id)" class="delete-card-btn">&times;</button>
         </div>
       </template>
     </draggable>
@@ -102,10 +110,34 @@ function handleAddCard() {
   padding: 10px;
   margin-bottom: 8px;
   font-size: 0.9rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 .add-card-form {
   margin-top: 10px;
+}
+
+.delete-card-btn {
+  background: none;
+  border: none;
+  color: #6b778c;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0px 5px;
+  line-height: 1;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.card:hover .delete-card-btn {
+  opacity: 1;
+}
+
+.delete-card-btn:hover {
+  color: red;
 }
 
 .card-composer {
