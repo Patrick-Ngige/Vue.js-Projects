@@ -1,24 +1,25 @@
+// src/components/TheBoard.vue
 <script setup>
 import { useBoardStore } from '@/stores/boardStore'
 import BoardColumn from './BoardColumn.vue'
 
-//store instance
+// Get the store instance
 const boardStore = useBoardStore()
 </script>
 
 <template>
   <div class="board">
-    <!-- //looping through the columns in the store -->
-    <BoardColumn v-for="column in boardStore.getColumns" :key="column.id" :column="columns" />
+    <!-- Loop through the columns from the store's getter -->
+    <BoardColumn v-for="column in boardStore.getColumns" :key="column.id" :column="column" />
   </div>
 </template>
 
 <style scoped>
 .board {
   display: flex;
-  overflow-x: auto;
+  overflow-x: auto; /* Allows horizontal scrolling */
   padding: 20px;
   height: 100vh;
-  background-color: #0079bf;
+  background-color: #0079bf; /* Trello blue */
 }
 </style>
