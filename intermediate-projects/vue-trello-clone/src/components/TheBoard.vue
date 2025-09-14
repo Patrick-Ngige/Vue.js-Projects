@@ -9,7 +9,7 @@ const boardStore = useBoardStore()
 <template>
   <div class="board">
     <!-- //looping through the columns in the store -->
-    <BoardColumn v-for="column in boardStore.getColumns" :key="column.id" :column="column" />
+    <BoardColumn v-for="column in boardStore.getColumns" :key="column.id" :column="columns" />
   </div>
 </template>
 
