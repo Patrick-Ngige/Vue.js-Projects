@@ -57,10 +57,10 @@ function handleAddCard() {
 .column {
   background-color: #ebecf0;
   border-radius: 3px;
-  width: 300px;
+  width: 33.33%;
   margin: 0 10px;
   padding: 10px;
-  flex-shrink: 0; /* Prevents columns from shrinking */
+  /* flex-shrink: 0; Prevents columns from shrinking */
 }
 .column-title {
   font-size: 1rem;
