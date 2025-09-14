@@ -1,7 +1,18 @@
-<script setup></script>
+<script setup>
+import TheBoard from './components/TheBoard.vue'
+</script>
 
 <template>
-  <h1>You did it!</h1>
+  <main>
+    <TheBoard />
+  </main>
 </template>
 
-<style scoped></style>
+<style scoped>
+body {
+  margin: 0;
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+    'Helvetica Neue', sans-serif;
+}
+</style>
