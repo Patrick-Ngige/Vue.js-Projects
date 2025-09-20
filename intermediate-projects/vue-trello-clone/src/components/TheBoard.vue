@@ -2,6 +2,7 @@
 <script setup>
 import { useBoardStore } from '@/stores/boardStore'
 import BoardColumn from './BoardColumn.vue'
+import NewColumnForm from './NewColumnForm.vue'
 
 // Get the store instance
 const boardStore = useBoardStore()
@@ -11,6 +12,7 @@ const boardStore = useBoardStore()
   <div class="board">
     <!-- Loop through the columns from the store's getter -->
     <BoardColumn v-for="column in boardStore.getColumns" :key="column.id" :column="column" />
+    <NewColumnForm />
   </div>
 </template>
 
