@@ -49,15 +49,22 @@ function handleDeleteCard(cardId) {
     cardId: cardId,
   })
 }
+
+function handleDeleteColumn() {
+  boardStore.deleteColumn(props.column.id)
+}
 </script>
 
 <template>
   <div class="column">
-    <h2 class="column-title">{{ column.title }}</h2>
+    <h2 class="column-header">{{ column.title }}</h2>
     <!-- <div class="card-list"> -->
     <!-- <div v-for="card in column.cards" :key="card.id" class="card">
         {{ card.content }}
       </div> -->
+
+    <!-- Delete bottom  -->
+    <button @click="handleDeleteColumn" class="delete-column-btn">&times;</button>
 
     <!-- replacing the v-for div with the draggable component  -->
     <draggable
@@ -98,11 +105,27 @@ function handleDeleteCard(cardId) {
   padding: 10px;
   /* flex-shrink: 0; Prevents columns from shrinking */
 }
-.column-title {
+.column-header h2 {
   font-size: 1rem;
   font-weight: 600;
-  margin-bottom: 10px;
+  margin: 0;
 }
+
+.delete-column-btn {
+  background-color: none;
+  border: none;
+  color: #6b778c;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0px 5px;
+  line-height: 1;
+}
+
+.delete-column-btn:hover {
+  color: #172b4d;
+}
+
 .card {
   background-color: white;
   border-radius: 3px;
