@@ -73,5 +73,10 @@ export const useBoardStore = defineStore('board', {
       }
       this.board.columns.push(newColumn)
     },
+
+    deleteColumn(columnId) {
+      //re-assigning the columns array to a new array that excludes the one to be deleted
+      this.board.columns = this.board.columns.filter((col) => col.id !== columnId)
+    },
   },
 })
