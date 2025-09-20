@@ -64,11 +64,12 @@ export const useBoardStore = defineStore('board', {
       }
     },
 
+    // ADD THIS NEW ACTION
     addColumn(columnTitle) {
       const newColumn = {
         id: uuid(),
         title: columnTitle,
-        cards: [], //a new column starts with an empty array of cards
+        cards: [], // A new column starts with an empty array of cards
       }
       this.board.columns.push(newColumn)
     },

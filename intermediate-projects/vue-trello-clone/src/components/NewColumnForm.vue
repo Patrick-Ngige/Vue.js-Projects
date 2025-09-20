@@ -1,3 +1,4 @@
+// src/components/NewColumnForm.vue
 <script setup>
 import { ref } from 'vue'
 import { useBoardStore } from '@/stores/boardStore'
@@ -28,20 +29,20 @@ function handleAddColumn() {
 .new-column-form {
   flex-shrink: 0;
   width: 300px;
-  margin: 0px 10px;
+  margin: 0 10px;
 }
 .new-column-input {
-  background-color: hsla(0, 0, 100%, 0.24);
+  background-color: hsla(0, 0%, 100%, 0.24);
   border: none;
   border-radius: 3px;
   color: white;
   padding: 10px;
-  width: 100px;
+  width: 100%;
   box-sizing: border-box;
   font-size: 1rem;
 }
 .new-column-input::placeholder {
-  color: hsla(0, 0, 100%, 0.7);
+  color: hsla(0, 0%, 100%, 0.7);
 }
 .add-column-btn {
   background-color: #5aac44;
