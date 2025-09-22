@@ -9,9 +9,21 @@ const product = ref({
   description:
     'Experience the rich, full-bodied sound of this masterfully crafted guitar. Perfect for both beginners and seasoned players, it features a solid spruce top and mahogany back and sides for a balanced tone.',
   images: [
-    { id: 1, url: 'https://i.imgur.com/f2h4jWp.jpeg', alt: 'Guitar front view' },
-    { id: 2, url: 'https://i.imgur.com/gT3hGq5.jpeg', alt: 'Guitar front view' },
-    { id: 3, url: 'https://i.imgur.com/sI1hV5G.jpeg', alt: 'Guitar front view' },
+    {
+      id: 1,
+      url: new URL('../assets/images/guitar.jpg', import.meta.url).href,
+      alt: 'Guitar front view',
+    },
+    {
+      id: 2,
+      url: new URL('../assets/images/guitar1.jpg', import.meta.url).href,
+      alt: 'Guitar front view',
+    },
+    {
+      id: 3,
+      url: new URL('../assets/images/guitar2.jpg', import.meta.url).href,
+      alt: 'Guitar front view',
+    },
   ],
 })
 
@@ -40,7 +52,7 @@ function changeImage(image) {
           <!-- Thumbnail images -->
           <div class="grid grid-cols-4 gap-4 mt-4">
             <div
-              v-for="image in products.images"
+              v-for="image in product.images"
               :key="image.id"
               @click="changeImage(image)"
               class="bg-white rounded-lg shadow p-2 cursor-pointer"
