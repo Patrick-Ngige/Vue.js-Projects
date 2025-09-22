@@ -1,13 +1,14 @@
 // src/views/ProductView.vue
 <script setup>
 import { ref } from 'vue'
+import { useCartStore } from '@/stores/cartStore'
 
 const product = ref({
+  id: 'prod-1',
   name: 'Acoustic Guitar',
   brand: 'Fender',
   price: 499.99,
-  description:
-    'Experience the rich, full-bodied sound of this masterfully crafted guitar. Perfect for both beginners and seasoned players, it features a solid spruce top and mahogany back and sides for a balanced tone.',
+  description: '...',
   images: [
     {
       id: 1,
@@ -31,6 +32,26 @@ const selectedImage = ref(product.value.images[0])
 
 function changeImage(image) {
   selectedImage.value = image
+}
+
+//getting the cart store instance
+const cartStore = useCartStore()
+
+//local state for this component
+const quantity = ref(1)
+const itemAdded = ref(false)
+
+//function to handle the button clicks
+function handleAddToCart() {
+  cartStore.add(product.value, quantity.value)
+
+  //confirmation message
+  itemAdded.value = true
+
+  //hiding the message after 2 seconds
+  setTimeout(() => {
+    itemAdded.value = false
+  }, 2000)
 }
 </script>
 
@@ -93,15 +114,20 @@ function changeImage(image) {
             <input
               type="number"
               id="quantity"
-              value="1"
+              v-model.number="quantity"
+              min="1"
               class="w-20 p-2 border border-gray-300 rounded-lg text-center"
             />
           </div>
 
           <button
+            @click="handleAddToCart"
             class="w-full bg-blue-600 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-blue-700 transition-colors duration-300"
           >
-            Add to Cart
+            <span :class="{ 'opacity-0': itemAdded }"> Add to Cart </span>
+            <span v-if="itemAdded" class="absolute inset-0 flex items-center justify-center">
+              Added!
+            </span>
           </button>
         </div>
       </div>
