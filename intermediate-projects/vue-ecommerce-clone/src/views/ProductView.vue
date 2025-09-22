@@ -1,6 +1,25 @@
 // src/views/ProductView.vue
 <script setup>
-// We'll add our product data and logic here in the next step
+import { ref } from 'vue'
+
+const product = ref({
+  name: 'Acoustic Guitar',
+  brand: 'Fender',
+  price: 499.99,
+  description:
+    'Experience the rich, full-bodied sound of this masterfully crafted guitar. Perfect for both beginners and seasoned players, it features a solid spruce top and mahogany back and sides for a balanced tone.',
+  images: [
+    { id: 1, url: 'https://i.imgur.com/f2h4jWp.jpeg', alt: 'Guitar front view' },
+    { id: 2, url: 'https://i.imgur.com/gT3hGq5.jpeg', alt: 'Guitar front view' },
+    { id: 3, url: 'https://i.imgur.com/sI1hV5G.jpeg', alt: 'Guitar front view' },
+  ],
+})
+
+const selectedImage = ref(product.value.images[0])
+
+function changeImage(image) {
+  selectedImage.value = image
+}
 </script>
 
 <template>
