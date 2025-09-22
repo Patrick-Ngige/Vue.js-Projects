@@ -28,24 +28,23 @@ function changeImage(image) {
       <!-- Main Product Layout: Grid with 2 columns -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
         <!-- Column 1: Image Gallery -->
+        <!-- <img :src="selectedImage.url" :alt="selectedImage.alt" class="w-full h-auto rounded-lg" /> -->
         <div>
           <div class="bg-white rounded-lg shadow-lg p-4">
-            <img
-              src="https://i.imgur.com/f2h4jWp.jpeg"
-              alt="Main Product Image"
-              class="w-full h-auto rounded-lg"
-            />
+            <img src="selectedImage.url" alt="selectedImage.alt" class="w-full h-auto rounded-lg" />
           </div>
           <!-- Thumbnail images -->
           <div class="grid grid-cols-4 gap-4 mt-4">
-            <div class="bg-white rounded-lg shadow p-2 cursor-pointer border-2 border-blue-500">
-              <img
-                src="https://i.imgur.com/f2h4jWp.jpeg"
-                alt="Thumbnail 1"
-                class="w-full h-auto rounded"
-              />
+            <div
+              v-for="image in products.images"
+              :key="image.id"
+              @click="changeImage(image)"
+              class="bg-white rounded-lg shadow p-2 cursor-pointer"
+              :class="{ 'border-2 border-blue-500': selectedImage.id === image.id }"
+            >
+              <img src="image.url" alt="image.alt" class="w-full h-auto rounded" />
             </div>
-            <div class="bg-white rounded-lg shadow p-2 cursor-pointer">
+            <!-- <div class="bg-white rounded-lg shadow p-2 cursor-pointer">
               <img
                 src="https://i.imgur.com/gT3hGq5.jpeg"
                 alt="Thumbnail 2"
@@ -58,21 +57,19 @@ function changeImage(image) {
                 alt="Thumbnail 3"
                 class="w-full h-auto rounded"
               />
-            </div>
+            </div> -->
           </div>
         </div>
 
         <!-- Column 2: Product Details -->
         <div>
-          <h1 class="text-4xl font-bold text-gray-800 mb-2">Acoustic Guitar</h1>
-          <p class="text-gray-500 text-sm mb-4">By Fender</p>
+          <h1 class="text-4xl font-bold text-gray-800 mb-2">{{ product.price }}</h1>
+          <p class="text-gray-500 text-sm mb-4">{{ product.brand }}</p>
 
-          <p class="text-3xl font-semibold text-blue-600 mb-6">$499.99</p>
+          <p class="text-3xl font-semibold text-blue-600 mb-6">{{ product.price }}</p>
 
           <p class="text-gray-700 leading-relaxed mb-6">
-            Experience the rich, full-bodied sound of this masterfully crafted acoustic guitar.
-            Perfect for both beginners and seasoned players, it features a solid spruce top and
-            mahogany back and sides for a balanced tone.
+            {{ product.description }}
           </p>
 
           <div class="flex items-center mb-6">
