@@ -31,7 +31,11 @@ function changeImage(image) {
         <!-- <img :src="selectedImage.url" :alt="selectedImage.alt" class="w-full h-auto rounded-lg" /> -->
         <div>
           <div class="bg-white rounded-lg shadow-lg p-4">
-            <img src="selectedImage.url" alt="selectedImage.alt" class="w-full h-auto rounded-lg" />
+            <img
+              :src="selectedImage.url"
+              :alt="selectedImage.alt"
+              class="w-full h-auto rounded-lg"
+            />
           </div>
           <!-- Thumbnail images -->
           <div class="grid grid-cols-4 gap-4 mt-4">
@@ -42,7 +46,7 @@ function changeImage(image) {
               class="bg-white rounded-lg shadow p-2 cursor-pointer"
               :class="{ 'border-2 border-blue-500': selectedImage.id === image.id }"
             >
-              <img src="image.url" alt="image.alt" class="w-full h-auto rounded" />
+              <img :src="image.url" :alt="image.alt" class="w-full h-auto rounded" />
             </div>
             <!-- <div class="bg-white rounded-lg shadow p-2 cursor-pointer">
               <img
