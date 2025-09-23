@@ -100,10 +100,11 @@ function handleAddToCart() {
 
         <!-- Column 2: Product Details -->
         <div>
-          <h1 class="text-4xl font-bold text-gray-800 mb-2">{{ product.price }}</h1>
-          <p class="text-gray-500 text-sm mb-4">{{ product.brand }}</p>
+          <!-- CORRECTED BINDINGS -->
+          <h1 class="text-4xl font-bold text-gray-800 mb-2">{{ product.name }}</h1>
+          <p class="text-gray-500 text-sm mb-4">By {{ product.brand }}</p>
 
-          <p class="text-3xl font-semibold text-blue-600 mb-6">{{ product.price }}</p>
+          <p class="text-3xl font-semibold text-blue-600 mb-6">${{ product.price }}</p>
 
           <p class="text-gray-700 leading-relaxed mb-6">
             {{ product.description }}
@@ -122,9 +123,9 @@ function handleAddToCart() {
 
           <button
             @click="handleAddToCart"
-            class="w-full bg-blue-600 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-blue-700 transition-colors duration-300"
+            class="w-full bg-blue-600 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-blue-700 transition-all duration-300 relative"
           >
-            <span :class="{ 'opacity-0': itemAdded }"> Add to Cart </span>
+            <span :class="{ 'opacity-0': itemAdded }">Add to Cart</span>
             <span v-if="itemAdded" class="absolute inset-0 flex items-center justify-center">
               Added!
             </span>
